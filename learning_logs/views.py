@@ -4,6 +4,7 @@ from .forms import Topic_Form, Entry_Form
 from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_protect
 
 
 def index(request):
@@ -31,6 +32,7 @@ def topic(request, topic_id):
     return render(request, 'learning_logs/topic.html', context)
 
 @login_required
+@csrf_protect
 def new_topic(request):
     """Adiciona um novo assunto."""
     if request.method != 'POST':
@@ -48,6 +50,7 @@ def new_topic(request):
     return render(request, 'learning_logs/new_topic.html', context)
 
 @login_required
+@csrf_protect
 def new_entry(request, topic_id):
     """Adiciona uma nova anotação a um assunto."""
     topic = Topic.objects.get(id=topic_id)
@@ -74,6 +77,7 @@ def new_entry(request, topic_id):
     return render(request, 'learning_logs/new_entry.html', context)
 
 @login_required
+@csrf_protect
 def edit_entry(request, entry_id):
     """Edita um anotação existente."""
     entry = Entry.objects.get(id=entry_id)
