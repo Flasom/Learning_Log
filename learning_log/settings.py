@@ -45,11 +45,11 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -128,3 +128,6 @@ LOGIN_URL = '/users/login'
 BOOTSTRAP3 = {
     'include_jquery': True
 }
+
+CSRF_TRUSTED_ORIGINS = ['https://learning-log-floral-sun-1551.fly.dev/', 'https://admin.learning-log-floral-sun-1551.fly.dev/']
+CSRF_COOKIE_DOMAIN = '.learning-log-floral-sun-1551.fly.dev/'  
