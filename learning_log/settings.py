@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-p8&ka@(ku+_119%xr3lzss86)6zp-o(j4p74p2i47*=taz!1o-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://learning-log-floral-sun-1551.fly.dev/"]
+ALLOWED_HOSTS = [".learning-log-floral-sun-1551.fly.dev/"]
 
 
 # Application definition
