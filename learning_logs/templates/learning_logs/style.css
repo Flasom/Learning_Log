@@ -1,0 +1,12 @@
+body {
+    text-align: justify;
+    padding: 2.5%;
+    background-color: rgba(80, 80, 80, 0.4);
+    border-radius: 6px;
+    margin: 10%;
+}
+
+html {
+    background-color: darkgray;
+    color: #ffff;
+}
