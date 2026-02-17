@@ -129,5 +129,6 @@ BOOTSTRAP3 = {
     'include_jquery': True
 }
 
-CSRF_TRUSTED_ORIGINS = ['https://learning-log-floral-sun-1551.fly.dev/', 'https://admin.learning-log-floral-sun-1551.fly.dev/']
-CSRF_COOKIE_DOMAIN = '.learning-log-floral-sun-1551.fly.dev/'  
+CSRF_TRUSTED_ORIGINS = ['https://*.fly.dev', 'https://*.127.0.0.1']
+
+CSRF_COOKIE_SECURE= True
