@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib.auth import logout, login, authenticate
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_protect
 
 
 def logout_view(request):
@@ -12,7 +12,7 @@ def logout_view(request):
     return HttpResponseRedirect(reverse('index'))
 
 
-@csrf_exempt
+@csrf_protect
 def register(request):
     """Faz o cadastro de um novo usuário."""
     if request.user.is_authenticated:
