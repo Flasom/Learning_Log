@@ -1,7 +1,12 @@
 {% extends 'learning_logs/base.html' %}
 
 {% block header %}
-<h2>{{topic}} </h2>
+<h2>{{topic}}
+    <a class="btn btn-default" href="{% url 'edit_topic' topic.id %}">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    </a>
+</h2>
+
 {% endblock header %}
 
 {% block content %}
@@ -13,9 +18,9 @@
     <div class="panel-heading">
         <h3>
             {{ entry.date_added | date:'M d, Y H:i' }}
-            <small>
-                <a href="{% url 'edit_entry' entry.id %}">Editar anotação</a>
-            </small>
+            <a class="btn btn-default btn-sm" href="{% url 'edit_entry' entry.id %}">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </a>
         </h3>
     </div>
 
