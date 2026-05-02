@@ -1,5 +1,5 @@
 from django import forms
-from .models import Topic, Entry
+from .models import Topic, Entry, History
 
 class Topic_Form(forms.ModelForm):
     class Meta:
@@ -13,3 +13,9 @@ class Entry_Form(forms.ModelForm):
         fields = ['text']
         labels = {'text': ''}
         widgets = {'text': forms.Textarea(attrs={'cols':80})}
+
+class History_Form(forms.ModelForm):
+    class Meta:
+        model = History
+        fields  = ['title','text']
+        labels = {'title': '', 'text': ''}

@@ -5,6 +5,11 @@
     <a class="btn btn-default" href="{% url 'edit_topic' topic.id %}">
         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
     </a>
+
+    <!-- delete -->
+    <a class="btn btn-danger" href="{% url 'delete_confirm_topic' topic.id %}">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+    </a>
 </h2>
 
 {% endblock header %}
@@ -20,6 +25,10 @@
             {{ entry.date_added | date:'M d, Y H:i' }}
             <a class="btn btn-default btn-sm" href="{% url 'edit_entry' entry.id %}">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </a>
+
+            <a class="btn btn-danger btn-sm" href="{% url 'delete_confirm_entry' entry.id %}">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
             </a>
         </h3>
     </div>

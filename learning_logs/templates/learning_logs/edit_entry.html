@@ -12,10 +12,12 @@
 <h3>Editar anotação:</h3>
 
 <form action="{% url 'edit_entry' entry.id %}" method="post" class="form">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    {% buttons %}
+    <div>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
         <button class="btn btn-primary" name="submit">Salvar</button>
-    {% endbuttons %}
+        {% endbuttons %}
+    </div>
 </form>
 {% endblock content %}

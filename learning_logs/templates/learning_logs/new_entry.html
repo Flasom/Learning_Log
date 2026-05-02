@@ -12,10 +12,13 @@
 <h3>Adicione uma nova entrada:</h3>
 
 <form action="{% url 'new_entry' topic.id %}" method="post" class="form">
+    <div class="form-group"></div>
     {% csrf_token %}
     {% bootstrap_form form %}
     {% buttons %}
-        <button class="btn btn-primary" name="submit">Adicionar</button>
+    <button class="btn btn-primary" name="submit">Adicionar</button>
     {% endbuttons %}
+    </div>
+
 </form>
 {% endblock content %}

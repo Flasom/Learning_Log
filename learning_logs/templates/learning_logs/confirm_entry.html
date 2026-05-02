@@ -1,0 +1,19 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block header %}
+<h2>Exclusão</h2>
+{% endblock header %}
+
+{% block content %}
+<h3>Realmente deseja fazer esta exclusão?</h3>
+
+<div>
+    <a class="btn btn-success" href="{% url 'topic' topic.id%}">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </a>
+    <a class="btn btn-danger" href="{% url 'delete_entry' entry.id %}">
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+    </a>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block header %}
+    <h2>Histórico</h2>
+{% endblock header %}
+
+{% block content %}
+    <ul class="list-group">
+            {% for action in history %}
+            <li class="list-group-item">
+                <div>
+                <div>
+                    {{action.title | linebreaks }}
+                </div>
+                <div>
+                    {{ action.date_added | date:'M d, Y H:i' }}
+                </div>
+                </div>
+            </li>
+            {% empty %}
+            <div>
+                Não há registro.
+            </div>
+            {% endfor %}
+        </ul>
+{% endblock content %}

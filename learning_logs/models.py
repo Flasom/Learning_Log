@@ -24,3 +24,16 @@ class Entry(models.Model):
         """Devolve uma representação em string do modelo"""
         return self.text[:50] + '...'
     
+class History(models.Model):
+    """Histórico de atividade do usuario."""
+    title = models.CharField(max_length=100)
+    text = models.CharField(max_length=50)
+    date_added = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'histories'
+
+    def __str__(self):
+        """Devolve uma representação em string do modelo"""
+        return self.text[:25] + '...'

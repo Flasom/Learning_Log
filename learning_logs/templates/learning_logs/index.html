@@ -2,19 +2,46 @@
 
 {% block header %}
 <div class="jumbotron">
-    <h2>Acompanhe seu aprendizado</h2>
+    <h2 class="text_justify">Acompanhe seu aprendizado</h2>
 </div>
 {% endblock header %}
 
 {% block content %}
-{% if user.is_authenticated %}  
+{% if user.is_authenticated %}
 {% else %}
-    <h2 class="">
-        <a href="{% url 'register' %}">Crie uma conta</a> para utilizar o Learnig Log e liste os tópicos que você está
-        aprendendo.
-    </h2>
+<h3>
+    <a href="{% url 'register' %}">Crie uma conta</a> para utilizar o Learnig Log e liste os tópicos que você está
+    aprendendo.
+</h3>
+</h2>
 {% endif %}
 <h2>
-        Sempre que você aprender algo novo sobre um tópico, faça uma entrada resumindo o que você aprendeu.
-    </h2>    
+    Sempre que você aprender algo novo sobre um tópico, faça uma anotação resumindo o que você aprendeu.
+</h2>
+<h1> </h1>
+<div>
+    <div class="container row">
+        <p class="col-md-11 text-left lead">Histórico</p>
+        <a class="col-md-1 " href="{% url 'history' %}">Ver mais</a>
+    </div>
+    <ul class="list-group">
+        {% for action in history %}
+        <li class="list-group-item">
+            <div>
+                <div>
+                    {{action.title | linebreaks }}
+                </div>
+                <div>
+                    {{ action.date_added | date:'M d, Y H:i' }}
+                </div>
+            </div>
+        </li>
+        {% empty %}
+        <div>
+            Não há registro.
+        </div>
+        {% endfor %}
+    </ul>
+
+</div>
 {% endblock content %}
