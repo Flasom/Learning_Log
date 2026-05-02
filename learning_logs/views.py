@@ -9,9 +9,14 @@ from django.views.decorators.csrf import csrf_protect
 
 def index(request):
     """Página principal do Learning_Log"""
-    history = History.objects.all().order_by('-date_added')[:10]
-    context = {'history': history}
+    
+    context = {'history': return_history(request)}
     return render(request, 'learning_logs/index.html', context)
+
+@login_required
+def return_history(request):
+    history = History.objects.filter(owner=request.user).all().order_by('-date_added')[:10]
+    return history
 
 @login_required
 def topics(request):
@@ -216,8 +221,9 @@ def history_edit_topic(request, topic_name):
     new_history.owner = request.user
     new_history.save()
 
+@login_required
 def history(request):
     """Renderiza a pagina de histórico."""
-    history = History.objects.all().order_by('-date_added')
+    history = History.objects.filter(owner=request.user).all().order_by('-date_added')
     context = {'history': history}
     return render(request, 'learning_logs/history.html', context)

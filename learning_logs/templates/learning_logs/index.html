@@ -19,11 +19,13 @@
     Sempre que você aprender algo novo sobre um tópico, faça uma anotação resumindo o que você aprendeu.
 </h2>
 <h1> </h1>
+
 <div>
     <div class="container row">
         <p class="col-md-11 text-left lead">Histórico</p>
         <a class="col-md-1 " href="{% url 'history' %}">Ver mais</a>
     </div>
+    {% if user.is_authenticated %}
     <ul class="list-group">
         {% for action in history %}
         <li class="list-group-item">
@@ -42,6 +44,8 @@
         </div>
         {% endfor %}
     </ul>
-
 </div>
+{% else %}
+{% endif %}
+
 {% endblock content %}
